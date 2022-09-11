@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import { Input } from './SearchWrapperElements'
+import { Input } from './SearchWrapperElements';
 
 function SearchWrapper() {
-  return (
-    <div>
-      <form>
-        <Input type="search" name="search" id="search" placeholder='Search Github username..' />
-      </form>
-    </div>
-  )
+	return (
+		<form>
+			<Input
+				type="search"
+				name="search"
+				id="search"
+				placeholder="Search Github username.."
+				autoComplete="off"
+			/>
+		</form>
+	);
 }
 
-export default SearchWrapper
+export default SearchWrapper;
