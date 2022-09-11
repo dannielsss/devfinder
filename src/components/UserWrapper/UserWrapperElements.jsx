@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const UserWrapperBox = styled.div`
-	display: grid;
-	place-items: start;
-	grid-template-columns: repeat(3, 1fr);
+	display: flex;
+	flex-direction: row;
 	gap: 12px;
 
 	box-shadow: 1px 1px 50px #00000060;
@@ -13,6 +12,12 @@ export const UserWrapperBox = styled.div`
 	border-radius: 10px;
 	padding: 15px;
 	height: 280px;
+
+	@media screen and (max-width: 480px) {
+		flex-direction: column;
+		align-items: center;
+		height: 90%;
+	}
 `;
 
 export const ErrorMessage = styled.div`
@@ -27,6 +32,7 @@ export const ErrorMessage = styled.div`
 
 export const GithubImg = styled.img`
 	width: 100px;
+	height: 100px;
 `;
 
 export const UserInformation = styled.div`
@@ -34,7 +40,7 @@ export const UserInformation = styled.div`
 	flex-direction: column;
 	gap: 20px;
 
-	width: 350px;
+	width: 100%;
 	padding-right: 20px;
 	column-span: all;
 `;

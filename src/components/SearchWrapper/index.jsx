@@ -12,7 +12,6 @@ function SearchWrapper() {
 
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
-		console.log(searchValue);
 		dispatch(loading());
 		try {
 			const res = await axios.get(`https://api.github.com/users/${searchValue}`);
@@ -23,7 +22,6 @@ function SearchWrapper() {
 			dispatch(loading());
 			if (error.response.status === 404) {
 				dispatch(notfound(true))
-				console.log('a');
 			}
 		}
 	};
