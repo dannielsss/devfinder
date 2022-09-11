@@ -11,9 +11,19 @@ export const UserWrapperBox = styled.div`
 	background: #1f2a48;
 	width: 100%;
 	border-radius: 10px;
-	padding: 30px;
-	height: 250px;
+	padding: 15px;
+	height: 280px;
 `;
+
+export const ErrorMessage = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 400;
+`
 
 export const GithubImg = styled.img`
 	width: 100px;
@@ -37,7 +47,7 @@ export const UserHeader = styled.div`
 `;
 
 export const UserName = styled.h1`
-	font-size: 27px;
+	font-size: 20px;
 	font-weight: 700;
 `;
 
@@ -48,9 +58,10 @@ export const SignInDate = styled.p`
 
 export const BioText = styled.p`
 	color: #6c7284;
-	font-size: 15px;
+	font-size: 14px;
 	margin-top: 2px;
 	font-weight: medium;
+	width: 100%;
 `;
 
 export const InfoWrapper = styled.div`
