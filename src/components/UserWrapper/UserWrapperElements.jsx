@@ -11,7 +11,7 @@ export const UserWrapperBox = styled.div`
 	width: 100%;
 	border-radius: 10px;
 	padding: 15px;
-	height: 280px;
+	height: auto;
 
 	@media screen and (max-width: 480px) {
 		flex-direction: column;
