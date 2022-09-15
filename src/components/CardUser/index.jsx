@@ -4,40 +4,39 @@ import {
 	BioText,
 	ErrorMessage,
 	Footer,
-	FooterLink,
-	FooterText,
 	GithubImg,
-	Icon,
-	InfoWrapper,
+	InfoBox,
 	SignInDate,
-	UserHeader,
-	UserInformation,
+	CardHeader,
+	CardInformation,
 	UserName,
-	UserWrapperBox,
-} from './UserWrapperElements';
-import InformationBox from '../InformationBox';
+	CardUserBox,
+} from './styles';
+
+import CardInformationItem from 'src/components/CardInformationItem';
+import FooterText from 'src/components/FooterText';
 
 import GithubIcon from 'src/assets/github_icon.png';
 import LocationIcon from 'src/assets/location_icon.svg';
 import LinkIcon from 'src/assets/link_icon.svg';
 import TwitterIcon from 'src/assets/twitter_icon.svg';
 
-function UserWrapper() {
+function CardUser() {
 	const search = useSelector((state) => state.search);
 	const altText = 'Not Available';
 
 	if (search.loading) {
 		return (
-			<UserWrapperBox>
+			<CardUserBox loading={'true'}>
 				<div></div>
 				<ErrorMessage>Loading...</ErrorMessage>
 				<div></div>
-			</UserWrapperBox>
+			</CardUserBox>
 		);
 	}
 
 	return (
-		<UserWrapperBox>
+		<CardUserBox>
 			{search.notfound ? (
 				<>
 					<div></div>
@@ -47,28 +46,28 @@ function UserWrapper() {
 			) : (
 				<>
 					<GithubImg src={GithubIcon} />
-					<UserInformation>
-						<UserHeader>
+					<CardInformation>
+						<CardHeader>
 							<UserName>{search.user.name || 'Username'}</UserName>
 							<SignInDate>{search.user.created_at || '00/00/00'}</SignInDate>
 							<BioText>{search.user.bio || 'This profile has no bio'} </BioText>
-						</UserHeader>
-						<InfoWrapper>
-							<InformationBox
+						</CardHeader>
+						<InfoBox>
+							<CardInformationItem
 								title={'Repos:'}
 								value={search.user.public_repos || 0}
 							/>
-							<InformationBox
+							<CardInformationItem
 								title={'Followers:'}
 								value={search.user.followers || 0}
 							/>
-							<InformationBox
+							<CardInformationItem
 								title={'Follwing:'}
 								value={search.user.following || 0}
 							/>
-						</InfoWrapper>
+						</InfoBox>
 						<Footer>
-							<FooterText>
+							{/* <FooterText>
 								<Icon src={LocationIcon} alt="" />{' '}
 								{search.user.location || altText}
 							</FooterText>
@@ -83,13 +82,31 @@ function UserWrapper() {
 								{search.user.twitter_username
 									? `@${search.user.twitter_username}`
 									: altText}
-							</FooterText>
+							</FooterText> */}
+							<FooterText
+								icon={LocationIcon}
+								text={search.user.location || altText}
+							/>
+							<FooterText
+								icon={LinkIcon}
+								text={search.user.html_url || altText}
+								isLink={true}
+								link={search.user.html_url || '/'}
+							/>
+							<FooterText
+								icon={TwitterIcon}
+								text={
+									search.user.twitter_username
+										? `@${search.user.twitter_username}`
+										: altText
+								}
+							/>
 						</Footer>
-					</UserInformation>
+					</CardInformation>
 				</>
 			)}
-		</UserWrapperBox>
+		</CardUserBox>
 	);
 }
 
-export default UserWrapper;
+export default CardUser;

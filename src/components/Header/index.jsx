@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Icon from 'src/assets/icon.svg';
-import styled from 'styled-components';
+import { HeaderWrapper } from './styles';
 
 function Header() {
 	return (
@@ -11,11 +11,5 @@ function Header() {
 	);
 }
 
-const HeaderWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	margin-bottom: 50px;
-`
 
 export default Header;

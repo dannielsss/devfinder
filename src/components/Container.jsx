@@ -16,6 +16,9 @@ export const ContainerBox = styled.div`
 
 export const ContainerData = styled.div`
 	width: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 
 	@media screen and (max-width: 750px) {
 		width: 90%;

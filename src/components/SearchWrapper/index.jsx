@@ -1,29 +1,15 @@
 import React, { useState } from 'react';
 
-import { searchUser, loading, notfound } from 'src/reducers/searchReducer';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-
-import { Input } from './SearchWrapperElements';
+import { Input } from './styles';
+import { useUser } from 'src/hooks/useUser';
 
 function SearchWrapper() {
 	const [searchValue, setSearchValue] = useState('');
-	const dispatch = useDispatch();
+	const { findUser } = useUser();
 
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
-		dispatch(loading());
-		try {
-			const res = await axios.get(`https://api.github.com/users/${searchValue}`);
-			dispatch(searchUser(res.data));
-			dispatch(notfound(false))
-			dispatch(loading());
-		} catch (error) {
-			dispatch(loading());
-			if (error.response.status === 404) {
-				dispatch(notfound(true))
-			}
-		}
+		findUser(searchValue);
 	};
 
 	return (

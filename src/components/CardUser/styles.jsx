@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
-export const UserWrapperBox = styled.div`
+export const CardUserBox = styled.div`
 	display: flex;
 	flex-direction: row;
 	gap: 12px;
 
 	box-shadow: 1px 1px 50px #00000060;
-	margin-top: 15px;
 	background: #1f2a48;
 	width: 100%;
 	border-radius: 10px;
 	padding: 15px;
-	height: auto;
+	height: ${(props) => (props.loading ? '242px' : 'auto')};
 
 	@media screen and (max-width: 480px) {
 		flex-direction: column;
@@ -28,14 +27,14 @@ export const ErrorMessage = styled.div`
 	width: 100%;
 	font-size: 20px;
 	font-weight: 400;
-`
+`;
 
 export const GithubImg = styled.img`
 	width: 100px;
 	height: 100px;
 `;
 
-export const UserInformation = styled.div`
+export const CardInformation = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -45,7 +44,7 @@ export const UserInformation = styled.div`
 	column-span: all;
 `;
 
-export const UserHeader = styled.div`
+export const CardHeader = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	align-items: center;
@@ -70,7 +69,7 @@ export const BioText = styled.p`
 	width: 100%;
 `;
 
-export const InfoWrapper = styled.div`
+export const InfoBox = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	border-radius: 5px;
@@ -84,20 +83,4 @@ export const InfoWrapper = styled.div`
 export const Footer = styled.div`
 	display: flex;
 	flex-direction: column;
-`;
-
-export const FooterLink = styled.a`
-	text-decoration: underline;
-	color: white;
-`;
-
-export const FooterText = styled.p`
-	font-weight: 300;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-`;
-
-export const Icon = styled.img`
-	width: 25px;
 `;
